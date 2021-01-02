@@ -4,7 +4,6 @@ const $ = loadPlugins();
 const pkg = require('./package.json');
 const conf = pkg['gulp-config'];
 const sizes = conf.sizes;
-const autoprefixer = require('autoprefixer');
 const browserSync = require('browser-sync');
 const server = browserSync.create();
 const isProd = process.env.NODE_ENV === 'production';
@@ -12,6 +11,7 @@ const cleanCSS = require('gulp-clean-css');
 const imageminPngquant = require('imagemin-pngquant');
 const imageminMozjpeg = require('imagemin-mozjpeg');
 
+//　画像圧縮の設定
 const imageminOption = [
   imageminPngquant({ quality: [0.65, 0.8] }),
   imageminMozjpeg({ quality: 85 }),
@@ -25,12 +25,14 @@ const imageminOption = [
   $.imagemin.svgo(),
 ];
 
+// 画像圧縮
 function minImage() {
   return src('./src/images/*.{png,jpg,jpeg,gif,svg}')
     .pipe($.imagemin(imageminOption))
     .pipe(dest('./dist/images'));
 }
 
+// faviconファイル作成
 function icon(done) {
   for (let size of sizes) {
     let width = size[0];
@@ -51,6 +53,7 @@ function icon(done) {
   done();
 }
 
+// SASS変換、autoprefixer、ソースマップ（開発環境のみ）、CSS圧縮
 function styles() {
   return src('./src/sass/main.scss')
     .pipe($.if(!isProd, $.sourcemaps.init()))
@@ -62,6 +65,7 @@ function styles() {
     .pipe(dest('./dist/css'));
 }
 
+// babelによるJSコンパイルと圧縮
 function scripts() {
   return src('./src/js/*.js')
     .pipe($.if(!isProd, $.sourcemaps.init()))
@@ -72,6 +76,7 @@ function scripts() {
     .pipe(dest('./dist/js'));
 }
 
+// JSファイルのlint
 function lint() {
   return src('./src/js/*.js')
     .pipe($.eslint({ fix: true }))
@@ -80,6 +85,7 @@ function lint() {
     .pipe(dest('./src/js'));
 }
 
+// サーバーの立ち上げと自動更新
 function startAppServer() {
   server.init({
     server: {
