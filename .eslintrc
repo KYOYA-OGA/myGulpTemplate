@@ -1,0 +1,9 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb-base",
+  "rules": {
+    "no-undef": 0,
+    "no-alert": 0,
+    "no-unused-vars": 0
+  }
+}

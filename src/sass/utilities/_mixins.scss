@@ -1,0 +1,38 @@
+@mixin position-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin position-center-self {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+//MEDIA QUERY MANAGER
+
+/*
+Bootstrap5のbreakpointに準拠(ただし、desktop-first)
+ORDER: Base + typography > general layout + grid > page layout > components
+*/
+
+/* prettier-ignore */
+@mixin respond($breakpoint) {
+  @if $breakpoint == small-phone {
+    @media only screen and (max-width: 576px) { @content };
+  }
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 768px) { @content };
+  }
+  @if $breakpoint == tablet {
+    @media only screen and (max-width: 992px) { @content };
+  }
+  @if $breakpoint == desktop {
+    @media only screen and (min-width: 1200px) { @content };
+  }
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 1400px) { @content };
+  }
+}

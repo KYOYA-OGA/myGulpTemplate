@@ -1,0 +1,95 @@
+{
+  "name": "my-gulp-template",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "gulp serve",
+    "build": "cross-env NODE_ENV=production gulp serve"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "autoprefixer": "^10.1.0",
+    "babel-eslint": "^10.1.0",
+    "browser-sync": "^2.26.13",
+    "cross-env": "^7.0.3",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-eslint": "^6.0.0",
+    "gulp-if": "^3.0.0",
+    "gulp-image-resize": "^0.13.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-load-plugins": "^2.0.6",
+    "gulp-postcss": "^9.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "imagemin-pngquant": "^9.0.1",
+    "postcss": "^8.2.2"
+  },
+  "browserslist": [
+    "last 3 versions",
+    "> 5%",
+    "iOS >= 9.0",
+    "Android >= 4.1",
+    "ie >= 11"
+  ],
+  "gulp-config": {
+    "sizes": [
+      [
+        16,
+        16
+      ],
+      [
+        32,
+        32
+      ],
+      [
+        48,
+        48
+      ],
+      [
+        57,
+        57
+      ],
+      [
+        76,
+        76
+      ],
+      [
+        120,
+        120
+      ],
+      [
+        128,
+        128
+      ],
+      [
+        152,
+        152
+      ],
+      [
+        167,
+        167
+      ],
+      [
+        180,
+        180
+      ],
+      [
+        192,
+        192
+      ],
+      [
+        512,
+        512
+      ]
+    ]
+  }
+}
